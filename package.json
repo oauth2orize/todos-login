@@ -1,0 +1,35 @@
+{
+  "name": "@oauth2orize-examples/todos-login",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Login endpoints using Express and Passport for authentication.",
+  "keywords": [
+    "example",
+    "express",
+    "passport",
+    "sqlite"
+  ],
+  "author": {
+    "name": "Jared Hanson",
+    "email": "jaredhanson@gmail.com",
+    "url": "https://www.jaredhanson.me/"
+  },
+  "homepage": "https://github.com/oauth2orize/todos-login",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/oauth2orize/todos-login.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oauth2orize/todos-login/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/jaredhanson"
+  },
+  "license": "Unlicense",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.1",
+    "passport": "^0.6.0"
+  }
+}
