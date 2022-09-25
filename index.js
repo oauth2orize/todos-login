@@ -3,7 +3,7 @@ var csrf = require('csurf');
 var LocalStrategy = require('passport-local');
 var crypto = require('crypto');
 
-exports = module.exports = function(authenticator, usersDB) {
+exports = module.exports = function(passport, usersDB) {
   var router = express.Router();
   
   /* Configure password authentication strategy.
@@ -17,7 +17,7 @@ exports = module.exports = function(authenticator, usersDB) {
    * the hashed password stored in the database.  If the comparison succeeds, the
    * user is authenticated; otherwise, not.
    */
-  authenticator.use(new LocalStrategy(function verify(username, password, cb) {
+  passport.use(new LocalStrategy(function verify(username, password, cb) {
     usersDB.get('SELECT * FROM users WHERE username = ?', [ username ], function(err, row) {
       if (err) { return cb(err); }
       if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
@@ -74,7 +74,7 @@ exports = module.exports = function(authenticator, usersDB) {
    */
   router.post('/login/password',
     csrf(),
-    authenticator.authenticate('local', {
+    passport.authenticate('local', {
       successReturnToOrRedirect: '/',
       failureRedirect: '/login',
       failureMessage: true
