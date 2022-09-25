@@ -29,7 +29,8 @@
   "license": "Unlicense",
   "main": "index.js",
   "dependencies": {
+    "csurf": "^1.11.0",
     "express": "^4.16.1",
-    "passport": "^0.6.0"
+    "passport-local": "^1.0.0"
   }
 }
